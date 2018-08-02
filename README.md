@@ -1,8 +1,8 @@
-# resty-hypercan-ffi
+# resty-hyperscan-ffi
 intel hyperscan luaffi bind
 
 
-#QuickStart
+# QuickStart
 
 apt-get install libhyperscan-dev 
 
@@ -10,18 +10,31 @@ apt-get install libhyperscan-dev
 
 g++ -O2 -o hs\_test hs\_test.c $(pkg-config --cflags --libs libhs)
 
+./hs\_test -h
+
+txt db example 
+
+0:/st[A-Z]r/HV
+
+1:/str2/HV
+
 ## make lib
 
 g++ -shared -fPIC -O2 -o libhscan.so hs\_test.c $(pkg-config --cflags --libs libhs)
+
 cp libhscan.so to openresty path -- "/opt/openresty/nginx/lib/libhscan.so"
 
 
 ## run
 
 local modhs = require "hs\_scan"
+
 local m = modhs.match("updatexml user\_tables", "/opt/sql\_hs.bin")
+
 ngx.log(ngx.DEBUG, "count ", m.count)
+
 ngx.log(ngx.DEBUG, "id 1 ", m.groups[0].id)
+
 ngx.log(ngx.DEBUG, "id 2 ", m.groups[1].id)
 
 
