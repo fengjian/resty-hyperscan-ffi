@@ -8,9 +8,9 @@ apt-get install libhyperscan-dev
 
 ## make tool
 
-g++ -O2 -o hs\_test hs\_test.c $(pkg-config --cflags --libs libhs)
+g++ -O2 -o hs\_scan hs\_scan.c $(pkg-config --cflags --libs libhs)
 
-./hs\_test -h
+./hs\_scan -h
 
 txt db example 
 
@@ -20,7 +20,7 @@ txt db example
 
 ## make lib
 
-g++ -shared -fPIC -O2 -o libhscan.so hs\_test.c $(pkg-config --cflags --libs libhs)
+g++ -shared -fPIC -O2 -o libhscan.so hs\_scan.c $(pkg-config --cflags --libs libhs)
 
 cp libhscan.so to openresty path -- "/opt/openresty/nginx/lib/libhscan.so"
 
