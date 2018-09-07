@@ -20,6 +20,7 @@ struct match_groups {
 };
 int khs_init_bin_db(const char *file);
 void khs_init_db(const char *file);
+int khs_block_scan_parallel(const char *file, const char **inputs, unsigned long long *lengths, void **ctxs, size_t size);
 int khs_block_scan(const char *file, const char *input, unsigned long long length, void *ctx);
 void khs_clear_cache();
 void khs_free_db(const char *file);
