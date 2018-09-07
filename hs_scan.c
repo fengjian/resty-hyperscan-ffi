@@ -286,6 +286,22 @@ extern "C"
 		}
 	}
 
+	int khs_block_scan_parallel(const char *file, const char **inputs, unsigned long long *lengths, void **ctxs, size_t size)
+	{
+		auto node_iter = G_DBCACHE.find(file);
+		if (node_iter != G_DBCACHE.end()) {
+			hs_database_t *db_block = node_iter->second.first;
+			hs_scratch_t *scratch = node_iter->second.second;
+
+#pragma omp parallel for
+			for (int i = 0; i < size; ++i) {
+				hs_scan((const hs_database_t*)db_block, inputs[i], lengths[i], 0,
+					(hs_scratch_t *)scratch, on_match, ctxs[i]);
+			}
+		}
+		return -1;
+	}
+
 	int khs_block_scan(const char *file, const char *input, unsigned long long length, void *ctx)
 	{
 		auto node_iter = G_DBCACHE.find(file);
