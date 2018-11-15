@@ -88,7 +88,7 @@ static void parse_file(const char *filename,
 		       vector<unsigned> &ids)
 {
     ifstream inFile(filename);
-    if (!inFile.good()) {
+    if (!inFile.is_open()) {
         cerr << "ERROR: Can't open pattern file \"" << filename << "\"" << endl;
         exit(-1);
     }
@@ -193,7 +193,7 @@ void serialize_database_to_file(const char *file, const char *path)
 	}
 
 	std::ofstream outfile(path, std::ofstream::binary);
-	if (!outfile.good()) {
+	if (!outfile.is_open()) {
 		std::cerr << "ERROR: Can't open: " << file << ". Exiting"<< std::endl;
 		exit(-1);
 	}
@@ -210,7 +210,7 @@ int deserialize_database_from_file(const char *filename, hs_database_t **db)
 	size_t length = 0;
 
 	ifstream infile(filename, std::ifstream::binary);
-	if (!infile.good()) {
+	if (!infile.is_open()) {
 		std::cerr << "ERROR: Can't open pattern bin file \"" << filename << "\"" << std::endl;
 		return -1;
 	}
