@@ -8,7 +8,7 @@ apt-get install libhyperscan-dev
 
 ## make tool
 
-g++ -O2 -o hs\_scan hs\_scan.c $(pkg-config --cflags --libs libhs)
+g++ -O3 -o hs\_scan hs\_scan.c $(pkg-config --cflags --libs libhs)
 
 ./hs\_scan -h
 

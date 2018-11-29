@@ -431,8 +431,3 @@ int main(int argc, char *const argv[])
 	exit(0);
 
 }
-
-/*
- * g++ -shared -fPIC -O2 -o libhscan.so hs_test.c $(pkg-config --cflags --libs libhs)
- * g++ -O2 -o hs_test hs_test.c $(pkg-config --cflags --libs libhs)
- */
