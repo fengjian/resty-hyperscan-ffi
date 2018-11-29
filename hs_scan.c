@@ -13,6 +13,14 @@
 #include <unistd.h>
 
 
+#ifndef likely
+#define likely(x)      __builtin_expect(!!(x), 1)
+#endif
+
+#ifndef unlikely
+#define unlikely(x)    __builtin_expect(!!(x), 0)
+#endif
+
 
 using std::cerr;
 using std::cout;
@@ -289,7 +297,7 @@ extern "C"
 	int khs_block_scan_parallel(const char *file, const char **inputs, unsigned long long *lengths, void **ctxs, size_t size)
 	{
 		auto node_iter = G_DBCACHE.find(file);
-		if (node_iter != G_DBCACHE.end()) {
+		if (likely(node_iter != G_DBCACHE.end())) {
 			hs_database_t *db_block = node_iter->second.first;
 			hs_scratch_t *scratch = node_iter->second.second;
 
@@ -305,7 +313,7 @@ extern "C"
 	int khs_block_scan(const char *file, const char *input, unsigned long long length, void *ctx)
 	{
 		auto node_iter = G_DBCACHE.find(file);
-		if (node_iter != G_DBCACHE.end()) {
+		if (likely(node_iter != G_DBCACHE.end())) {
 			hs_database_t *db_block = node_iter->second.first;
 			hs_scratch_t *scratch = node_iter->second.second;
 			hs_error_t err = hs_scan((const hs_database_t*)db_block, input, length, 0,

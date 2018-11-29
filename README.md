@@ -20,7 +20,7 @@ txt db example
 
 ## make lib
 
-g++ -shared -fPIC -O2 -o libhscan.so hs\_scan.c $(pkg-config --cflags --libs libhs) -fopenmp
+g++ -shared -fPIC -O3 -o libhscan.so hs\_scan.c $(pkg-config --cflags --libs libhs) -fopenmp
 
 cp libhscan.so to openresty path -- "/opt/openresty/nginx/lib/libhscan.so"
 
