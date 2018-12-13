@@ -18,12 +18,17 @@ txt db example
 
 1:/str2/HV
 
-## make lib
+## make lib 
 
 g++ -shared -fPIC -O3 -o libhscan.so hs\_scan.c $(pkg-config --cflags --libs libhs) -fopenmp
 
 cp libhscan.so to openresty path -- "/opt/openresty/nginx/lib/libhscan.so"
 
+## use cmake
+mkdir build
+cd build
+cmake -DCMAKE\_BUILD\_TYPE=Release ..
+make
 
 ## run
 

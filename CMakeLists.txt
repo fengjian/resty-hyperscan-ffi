@@ -13,7 +13,7 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
 
 
 add_executable(hs_scan hs_scan.cpp)
-add_library (hscan SHARED hs_scan.cpp)
+add_library(hscan SHARED hs_scan.cpp)
 
 target_link_libraries(hs_scan ${HS_LIBRARIES})
 target_include_directories(hs_scan PUBLIC ${HS_INCLUDE_DIRS})
