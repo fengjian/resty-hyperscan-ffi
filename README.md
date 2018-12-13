@@ -26,8 +26,11 @@ cp libhscan.so to openresty path -- "/opt/openresty/nginx/lib/libhscan.so"
 
 ## use cmake
 mkdir build
+
 cd build
+
 cmake -DCMAKE\_BUILD\_TYPE=Release ..
+
 make
 
 ## run
