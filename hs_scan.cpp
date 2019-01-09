@@ -372,7 +372,7 @@ int main(int argc, char *const argv[])
 		exit(-1);
 	}
 
-	unsigned char flag_mask = 0b00;
+	unsigned char flag_mask = 0x00;
 	unsigned char s_flag = 0x1;
 	unsigned char t_flag = 0x1 << 1;
 
@@ -411,7 +411,7 @@ int main(int argc, char *const argv[])
 
 	}
 
-	if (flag_mask != 0b11) {
+	if (flag_mask != 0x3) {
 		if (!(flag_mask & s_flag)) {
 			std::cerr << "not found option -s" << std::endl;
 		}
