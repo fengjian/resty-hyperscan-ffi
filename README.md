@@ -24,7 +24,8 @@ g++ -shared -fPIC -O3 -o libhscan.so hs\_scan.cpp $(pkg-config --cflags --libs l
 
 cp libhscan.so to openresty path -- "/opt/openresty/nginx/lib/libhscan.so"
 
-## use cmake
+## cmake
+
 mkdir build
 
 cd build
