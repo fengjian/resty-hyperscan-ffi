@@ -1,6 +1,5 @@
 # resty-hyperscan-ffi
-intel hyperscan luaffi bind
-
+Introducing a GitHub project offering LuaFFI bindings for Intel Hyperscan, primarily intended for use with OpenResty. This project aims to leverage the high-performance pattern matching capabilities of Intel Hyperscan within the OpenResty ecosystem. By providing LuaFFI bindings, developers can seamlessly integrate Hyperscan's efficient regular expression matching engine into their OpenResty applications. This enables advanced pattern matching and content inspection capabilities, enhancing the performance and security of web applications deployed on OpenResty servers. With Hyperscan's LuaFFI bindings, developers can efficiently implement complex pattern matching logic and accelerate the processing of HTTP requests and responses within their OpenResty-based web applications. Explore this project to unlock the full potential of Intel Hyperscan for OpenResty development.
 
 # QuickStart
 
